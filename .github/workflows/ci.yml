@@ -34,6 +34,8 @@ jobs:
           node-version: ${{ matrix.node }}
       - run: npm i -g npm@7
       - run: npx ember-cli@${{ matrix.ember }} new super-blog
-      - run: cd super-blog
+        working-directory: ./super-blog
       - run: npx ember install empress-blog empress-blog-casper-template
+        working-directory: ./super-blog
       - run: npx ember build
+        working-directory: ./super-blog
