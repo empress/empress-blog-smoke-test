@@ -12,7 +12,7 @@ jobs:
   smoke-test:
     name: "empress-blog quickstart on OS: ${{ matrix.os }} with Node ${{ matrix.node }} and Ember ${{ matrix.ember }}"
     runs-on: ${{ matrix.os }}
-    timeout-minutes: 15
+    timeout-minutes: 7
 
     strategy:
       fail-fast: false
