@@ -33,7 +33,7 @@ jobs:
           node-version: ${{ matrix.node }}
       - run: npm i -g npm@7
       - run: npx ember-cli@${{ matrix.ember }} new super-blog
-      - run: (yes | npx ember install empress-blog empress-blog-casper-template) & read -t 600 || exit 0
+      - run: (yes | npx ember install empress-blog empress-blog-casper-template) & read -t 900 || exit 0
         working-directory: ./super-blog
       - run: npx ember build
         working-directory: ./super-blog
@@ -59,7 +59,7 @@ jobs:
           node-version: ${{ matrix.node }}
       - run: npm i -g npm@7
       - run: npx ember-cli@${{ matrix.ember }} new super-blog
-      - run: (yes | npx ember install empress-blog empress-blog-casper-template) & timeout /t 600 || EXIT /B 0
+      - run: START "" (yes | npx ember install empress-blog empress-blog-casper-template); timeout /t 900
         working-directory: ./super-blog
       - run: npx ember build
         working-directory: ./super-blog
