@@ -12,7 +12,7 @@ jobs:
   smoke-test:
     name: "empress-blog quickstart on OS: ${{ matrix.os }} with Node ${{ matrix.node }} and Ember ${{ matrix.ember }}"
     runs-on: ${{ matrix.os }}
-    timeout-minutes: 15
+    timeout-minutes: 10
 
     strategy:
       fail-fast: false
@@ -34,7 +34,7 @@ jobs:
           node-version: ${{ matrix.node }}
       - run: npm i -g npm@7
       - run: npx ember-cli@${{ matrix.ember }} new super-blog
-      - run: yes | npx ember install empress-blog empress-blog-casper-template
+      - run: timeout 9m yes | npx ember install empress-blog empress-blog-casper-template
         working-directory: ./super-blog
       - run: npx ember build
         working-directory: ./super-blog
