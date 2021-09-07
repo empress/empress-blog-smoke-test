@@ -34,7 +34,7 @@ jobs:
           node-version: ${{ matrix.node }}
       - run: npm i -g npm@7
       - run: npx ember-cli@${{ matrix.ember }} new super-blog
-      - run: yes | npx ember install empress-blog empress-blog-casper-template & sleep 5m; kill $!
+      - run: (yes | npx ember install empress-blog empress-blog-casper-template) & read -t 300 || exit
         working-directory: ./super-blog
       - run: npx ember build
         working-directory: ./super-blog
